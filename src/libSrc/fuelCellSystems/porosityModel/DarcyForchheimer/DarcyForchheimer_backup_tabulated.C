@@ -95,10 +95,10 @@ Foam::porousZones::DarcyForchheimer::DarcyForchheimer
 
     if (capillaryPressureModel_ == "tabulated")
     {
-        krLTable_ = Function1<scalar>::New("krLTable", coeffs_);
-        krGTable_ = Function1<scalar>::New("krGTable", coeffs_);
-        pcTable_ = Function1<scalar>::New("pcTable", coeffs_);
-        dpcdsTable_ = Function1<scalar>::New("dpcdsTable", coeffs_);
+        krLTable_.reset(new interpolationTable<scalar>(coeffs_.lookup("krLTable")));
+        krGTable_.reset(new interpolationTable<scalar>(coeffs_.lookup("krGTable")));
+        pcTable_.reset(new interpolationTable<scalar>(coeffs_.lookup("pcTable")));
+        dpcdsTable_.reset(new interpolationTable<scalar>(coeffs_.lookup("dpcdsTable")));
     }
 
     if
@@ -406,8 +406,8 @@ void Foam::porousZones::DarcyForchheimer::dpcds
                     const label cellI = cells[i];
                     const scalar sl = alpha[cellI];
 
-                    pc[cellI] = pcTable_->value(sl) * tensor::I;
-                    dpcds[cellI] = dpcdsTable_->value(sl) * tensor::I;
+                    pc[cellI] = (*pcTable_)(sl) * tensor::I;
+                    dpcds[cellI] = (*dpcdsTable_)(sl) * tensor::I;
                 }
             }
             return;
@@ -548,84 +548,60 @@ void Foam::porousZones::DarcyForchheimer::correctU
 
         forAll(cells, i)
         {
-            if (capillaryPressureModel_ == "tabulated")
+            // Determine wetting phase saturation based on contact angle (theta_)
+            const scalar wettingSaturation =
+                theta_ < Foam::constant::mathematical::pi/2.0
+                    ? alpha1[cellI]
+                    : alpha2[cellI];
+
+            // Calculate normalized effective saturation
+            const scalar effectiveSaturation =
+                min
+                (
+                    max
+                    (
+                        (wettingSaturation - wettingResidualSaturation)
+                       / saturationRange,
+                        SMALL
+                    ),
+                    1.0
+                );
+
+            // Brooks-Corey relative permeability functions
+            const scalar krWetting =
+                max(Foam::pow(effectiveSaturation, exponentWetting), SMALL);
+
+            const scalar krNonWetting =
+                max
+                (
+                    Foam::pow(1.0 - effectiveSaturation, 2.0)
+                   * (1.0 - Foam::pow(effectiveSaturation, exponentNonWetting)),
+                    SMALL
+                );
+
+            // Map wetting/non-wetting relative permeabilities back to Phase 1 and Phase 2
+            scalar kr1 = SMALL;
+            scalar kr2 = SMALL;
+
+            if (theta_ < Foam::constant::mathematical::pi/2.0)
             {
-                forAll(cellZoneIDs_, zoneI)
-                {
-                    const tensorField& dZones = D_[zoneI];
-                    const labelList& cells = mesh_.cellZones()[cellZoneIDs_[zoneI]];
-
-                    forAll(cells, i)
-                    {
-                        const label cellI = cells[i];
-                        const label j = this->fieldIndex(i);
-
-                        const scalar sl = alpha1[cellI]; 
-
-                        // Evaluate tables and protect against zero division
-                        const scalar kr1 = max(krLTable_->value(sl), SMALL);
-                        const scalar kr2 = max(krGTable_->value(sl), SMALL);
-                        
-                        // only update velocity in porous media
-                        U2[cellI] = U[cellI];
-
-                        U1[cellI] = - (kr1 / mu1[cellI]) * U10[cellI] / dZones[j]
-                                    + (
-                                        (kr2 * mu2[cellI])
-                                        / (kr1 * mu1[cellI])
-                                    ) * U[cellI];
-                    }
-                }
+                kr1 = krWetting;
+                kr2 = krNonWetting;
             }
             else
             {
-                // Fallback to existing Brooks-Corey / Leverett analytical logic
-                forAll(cellZoneIDs_, zoneI)
-                {
-                    const tensorField& dZones = D_[zoneI];
-                    const labelList& cells = mesh_.cellZones()[cellZoneIDs_[zoneI]];
-
-                    forAll(cells, i)
-                    {
-                        const label cellI = cells[i];
-                        const label j = this->fieldIndex(i);
-
-                        const scalar wettingSaturation =
-                            theta_ < Foam::constant::mathematical::pi/2.0
-                                ? alpha1[cellI]
-                                : alpha2[cellI];
-
-                        const scalar effectiveSaturation =
-                            min(max((wettingSaturation - wettingResidualSaturation) / saturationRange, SMALL), 1.0);
-
-                        const scalar krWetting = max(Foam::pow(effectiveSaturation, exponentWetting), SMALL);
-                        const scalar krNonWetting = max(Foam::pow(1.0 - effectiveSaturation, 2.0) * (1.0 - Foam::pow(effectiveSaturation, exponentNonWetting)), SMALL);
-
-                        scalar kr1 = SMALL;
-                        scalar kr2 = SMALL;
-
-                        if (theta_ < Foam::constant::mathematical::pi/2.0)
-                        {
-                            kr1 = krWetting;
-                            kr2 = krNonWetting;
-                        }
-                        else
-                        {
-                            kr1 = krNonWetting;
-                            kr2 = krWetting;
-                        }
-                        
-                        // only update velocity in porous media
-                        U2[cellI] = U[cellI];
-
-                        U1[cellI] = - (kr1 / mu1[cellI]) * U10[cellI] / dZones[j]
-                                    + (
-                                        (kr2 * mu2[cellI])
-                                        / (kr1 * mu1[cellI])
-                                    ) * U[cellI];
-                    }
-                }
+                kr1 = krNonWetting;
+                kr2 = krWetting;
             }
+
+            //- Only update velocity in porous media
+            U2[cellI] = U[cellI];
+
+            U1[cellI] = - (kr1 / mu1[cellI]) * U10[cellI] / dZones[j]
+                        + (
+                              (kr2 * mu2[cellI])
+                            / (kr1 * mu1[cellI])
+                          ) * U[cellI];
         }
     }
 }

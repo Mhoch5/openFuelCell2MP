@@ -57,6 +57,7 @@ SourceFiles
 
 #include "porousZone.H"
 #include "dimensionedTensor.H"
+#include "Function1.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -105,6 +106,20 @@ class DarcyForchheimer
 
         //- Surface tension
         scalar sigma_;
+
+        word capillaryPressureModel_;
+
+        //- Brooks-Corey data
+        scalar pcEntry_;
+        scalar brooksCoreyLambda_;
+        scalar residualWaterSaturation_;
+        scalar residualGasSaturation_;
+
+        //- interpolated data for relative permeability and capillary pressure
+        autoPtr<Function1<scalar>> krLTable_;
+        autoPtr<Function1<scalar>> krGTable_;
+        autoPtr<Function1<scalar>> pcTable_;
+        autoPtr<Function1<scalar>> dpcdsTable_;
 
 
     // Private Member Functions
