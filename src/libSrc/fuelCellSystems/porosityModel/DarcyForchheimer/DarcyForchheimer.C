@@ -519,14 +519,14 @@ void Foam::porousZones::DarcyForchheimer::correctU
     const volScalarField& mu1 = mesh_.lookupObject<volScalarField>(mu1Name);
     const volScalarField& mu2 = mesh_.lookupObject<volScalarField>(mu2Name);
 
-    //- phase saturation
+    //- Phase saturation
     const volScalarField& alpha1 = mesh_.lookupObject<volScalarField>(alpha1Name);
     const volScalarField& alpha2 = mesh_.lookupObject<volScalarField>(alpha2Name);
 
-    //- temperary velocities
+    //- Capillary gradient driven velocity component
     volVectorField U10 = dpcds & fvc::grad(alpha1);
 
-    // Brooks-Corey model for relative permeability
+    // Pre-calculated parameters for Brooks-Corey
     const scalar saturationRange =
         1.0 - residualWaterSaturation_ - residualGasSaturation_;
 
@@ -543,89 +543,79 @@ void Foam::porousZones::DarcyForchheimer::correctU
     forAll(cellZoneIDs_, zoneI)
     {
         const tensorField& dZones = D_[zoneI];
-
         const labelList& cells = mesh_.cellZones()[cellZoneIDs_[zoneI]];
 
         forAll(cells, i)
         {
+            const label cellI = cells[i];
+            const label j = this->fieldIndex(i);
+
+            scalar kr1 = SMALL;
+            scalar kr2 = SMALL;
+
             if (capillaryPressureModel_ == "tabulated")
             {
-                forAll(cellZoneIDs_, zoneI)
-                {
-                    const tensorField& dZones = D_[zoneI];
-                    const labelList& cells = mesh_.cellZones()[cellZoneIDs_[zoneI]];
+                const scalar sl = alpha1[cellI];
 
-                    forAll(cells, i)
-                    {
-                        const label cellI = cells[i];
-                        const label j = this->fieldIndex(i);
-
-                        const scalar sl = alpha1[cellI]; 
-
-                        // Evaluate tables and protect against zero division
-                        const scalar kr1 = max(krLTable_->value(sl), SMALL);
-                        const scalar kr2 = max(krGTable_->value(sl), SMALL);
-                        
-                        // only update velocity in porous media
-                        U2[cellI] = U[cellI];
-
-                        U1[cellI] = - (kr1 / mu1[cellI]) * U10[cellI] / dZones[j]
-                                    + (
-                                        (kr2 * mu2[cellI])
-                                        / (kr1 * mu1[cellI])
-                                    ) * U[cellI];
-                    }
-                }
+                // Evaluate tables and protect against zero division
+                kr1 = max(krLTable_->value(sl), SMALL);
+                kr2 = max(krGTable_->value(sl), SMALL);
             }
-            else
+            else if (capillaryPressureModel_ == "brooksCorey")
             {
-                // Fallback to existing Brooks-Corey / Leverett analytical logic
-                forAll(cellZoneIDs_, zoneI)
+                const scalar wettingSaturation =
+                    theta_ < Foam::constant::mathematical::pi/2.0
+                        ? alpha1[cellI]
+                        : alpha2[cellI];
+
+                const scalar effectiveSaturation =
+                    min
+                    (
+                        max
+                        (
+                            (wettingSaturation - wettingResidualSaturation)
+                          / saturationRange,
+                            SMALL
+                        ),
+                        1.0
+                    );
+
+                const scalar krWetting =
+                    max(Foam::pow(effectiveSaturation, exponentWetting), SMALL);
+                const scalar krNonWetting =
+                    max
+                    (
+                        Foam::pow(1.0 - effectiveSaturation, 2.0)
+                       * (1.0 - Foam::pow(effectiveSaturation, exponentNonWetting)),
+                        SMALL
+                    );
+
+                if (theta_ < Foam::constant::mathematical::pi/2.0)
                 {
-                    const tensorField& dZones = D_[zoneI];
-                    const labelList& cells = mesh_.cellZones()[cellZoneIDs_[zoneI]];
-
-                    forAll(cells, i)
-                    {
-                        const label cellI = cells[i];
-                        const label j = this->fieldIndex(i);
-
-                        const scalar wettingSaturation =
-                            theta_ < Foam::constant::mathematical::pi/2.0
-                                ? alpha1[cellI]
-                                : alpha2[cellI];
-
-                        const scalar effectiveSaturation =
-                            min(max((wettingSaturation - wettingResidualSaturation) / saturationRange, SMALL), 1.0);
-
-                        const scalar krWetting = max(Foam::pow(effectiveSaturation, exponentWetting), SMALL);
-                        const scalar krNonWetting = max(Foam::pow(1.0 - effectiveSaturation, 2.0) * (1.0 - Foam::pow(effectiveSaturation, exponentNonWetting)), SMALL);
-
-                        scalar kr1 = SMALL;
-                        scalar kr2 = SMALL;
-
-                        if (theta_ < Foam::constant::mathematical::pi/2.0)
-                        {
-                            kr1 = krWetting;
-                            kr2 = krNonWetting;
-                        }
-                        else
-                        {
-                            kr1 = krNonWetting;
-                            kr2 = krWetting;
-                        }
-                        
-                        // only update velocity in porous media
-                        U2[cellI] = U[cellI];
-
-                        U1[cellI] = - (kr1 / mu1[cellI]) * U10[cellI] / dZones[j]
-                                    + (
-                                        (kr2 * mu2[cellI])
-                                        / (kr1 * mu1[cellI])
-                                    ) * U[cellI];
-                    }
+                    kr1 = krWetting;
+                    kr2 = krNonWetting;
+                }
+                else
+                {
+                    kr1 = krNonWetting;
+                    kr2 = krWetting;
                 }
             }
+            else // Leverett model
+            {
+                const scalar s1 = min(max(alpha1[cellI], SMALL), 1.0);
+                const scalar s2 = min(max(alpha2[cellI], SMALL), 1.0);
+
+                // Standard cubic relative permeability for Leverett J-function formulation
+                kr1 = max(Foam::pow3(s1), SMALL);
+                kr2 = max(Foam::pow3(s2), SMALL);
+            }
+
+            // Update velocity only in porous media cell zone
+            U2[cellI] = U[cellI];
+
+            U1[cellI] = - (kr1 / mu1[cellI]) * (U10[cellI] / dZones[j])
+                        + ((kr2 * mu2[cellI]) / (kr1 * mu1[cellI])) * U[cellI];
         }
     }
 }
