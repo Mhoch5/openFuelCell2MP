@@ -1,0 +1,631 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2306                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;
+    arch        "LSB;label=32;scalar=64";
+    class       decomposedBlockData;
+    location    "constant/polyMesh";
+    object      boundary;
+    data.format ascii;
+    data.class  polyBoundaryMesh;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+// processor0
+
+1682
+(FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       polyBoundaryMesh;
+    location    "constant/polyMesh";
+    object      boundary;
+}
+11
+(
+    interconnect0
+    {
+        type            patch;
+        nFaces          200;
+        startFace       39700;
+    }
+    interconnectSides
+    {
+        type            patch;
+        nFaces          1000;
+        startFace       39900;
+    }
+    airInlet
+    {
+        type            patch;
+        nFaces          100;
+        startFace       40900;
+    }
+    airOutlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       41000;
+    }
+    cathodeSides
+    {
+        type            patch;
+        nFaces          600;
+        startFace       41000;
+    }
+    electrolyteSides
+    {
+        type            patch;
+        nFaces          400;
+        startFace       41600;
+    }
+    anodeSides
+    {
+        type            patch;
+        nFaces          600;
+        startFace       42000;
+    }
+    fuelInlet
+    {
+        type            patch;
+        nFaces          100;
+        startFace       42600;
+    }
+    fuelOutlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       42700;
+    }
+    interconnect1
+    {
+        type            patch;
+        nFaces          200;
+        startFace       42700;
+    }
+    procBoundary0to1
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          1400;
+        startFace       42900;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        0;
+        neighbProcNo    1;
+    }
+))
+
+// processor1
+
+1767
+(12
+(
+    interconnect0
+    {
+        type            patch;
+        nFaces          200;
+        startFace       39700;
+    }
+    interconnectSides
+    {
+        type            patch;
+        nFaces          600;
+        startFace       39900;
+    }
+    airInlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       40500;
+    }
+    airOutlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       40500;
+    }
+    cathodeSides
+    {
+        type            patch;
+        nFaces          300;
+        startFace       40500;
+    }
+    electrolyteSides
+    {
+        type            patch;
+        nFaces          200;
+        startFace       40800;
+    }
+    anodeSides
+    {
+        type            patch;
+        nFaces          300;
+        startFace       41000;
+    }
+    fuelInlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       41300;
+    }
+    fuelOutlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       41300;
+    }
+    interconnect1
+    {
+        type            patch;
+        nFaces          200;
+        startFace       41300;
+    }
+    procBoundary1to0
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          1400;
+        startFace       41500;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        1;
+        neighbProcNo    0;
+    }
+    procBoundary1to2
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          1400;
+        startFace       42900;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        1;
+        neighbProcNo    2;
+    }
+))
+
+// processor2
+
+1767
+(12
+(
+    interconnect0
+    {
+        type            patch;
+        nFaces          200;
+        startFace       39700;
+    }
+    interconnectSides
+    {
+        type            patch;
+        nFaces          600;
+        startFace       39900;
+    }
+    airInlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       40500;
+    }
+    airOutlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       40500;
+    }
+    cathodeSides
+    {
+        type            patch;
+        nFaces          300;
+        startFace       40500;
+    }
+    electrolyteSides
+    {
+        type            patch;
+        nFaces          200;
+        startFace       40800;
+    }
+    anodeSides
+    {
+        type            patch;
+        nFaces          300;
+        startFace       41000;
+    }
+    fuelInlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       41300;
+    }
+    fuelOutlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       41300;
+    }
+    interconnect1
+    {
+        type            patch;
+        nFaces          200;
+        startFace       41300;
+    }
+    procBoundary2to1
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          1400;
+        startFace       41500;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        2;
+        neighbProcNo    1;
+    }
+    procBoundary2to3
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          1400;
+        startFace       42900;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        2;
+        neighbProcNo    3;
+    }
+))
+
+// processor3
+
+1486
+(11
+(
+    interconnect0
+    {
+        type            patch;
+        nFaces          200;
+        startFace       39700;
+    }
+    interconnectSides
+    {
+        type            patch;
+        nFaces          1000;
+        startFace       39900;
+    }
+    airInlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       40900;
+    }
+    airOutlet
+    {
+        type            patch;
+        nFaces          100;
+        startFace       40900;
+    }
+    cathodeSides
+    {
+        type            patch;
+        nFaces          600;
+        startFace       41000;
+    }
+    electrolyteSides
+    {
+        type            patch;
+        nFaces          400;
+        startFace       41600;
+    }
+    anodeSides
+    {
+        type            patch;
+        nFaces          600;
+        startFace       42000;
+    }
+    fuelInlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       42600;
+    }
+    fuelOutlet
+    {
+        type            patch;
+        nFaces          100;
+        startFace       42600;
+    }
+    interconnect1
+    {
+        type            patch;
+        nFaces          200;
+        startFace       42700;
+    }
+    procBoundary3to2
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          1400;
+        startFace       42900;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        3;
+        neighbProcNo    2;
+    }
+))
+
+// processor4
+
+1143
+(10
+(
+    interconnect0
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    interconnectSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    airInlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    airOutlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    cathodeSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    electrolyteSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    anodeSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    fuelInlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    fuelOutlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    interconnect1
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+))
+
+// processor5
+
+1143
+(10
+(
+    interconnect0
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    interconnectSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    airInlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    airOutlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    cathodeSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    electrolyteSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    anodeSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    fuelInlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    fuelOutlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    interconnect1
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+))
+
+// processor6
+
+1143
+(10
+(
+    interconnect0
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    interconnectSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    airInlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    airOutlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    cathodeSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    electrolyteSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    anodeSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    fuelInlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    fuelOutlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    interconnect1
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+))
+
+// processor7
+
+1143
+(10
+(
+    interconnect0
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    interconnectSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    airInlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    airOutlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    cathodeSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    electrolyteSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    anodeSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    fuelInlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    fuelOutlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    interconnect1
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+))

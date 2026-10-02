@@ -1,0 +1,454 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2306                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;
+    arch        "LSB;label=32;scalar=64";
+    class       decomposedBlockData;
+    object      boundary;
+    data.format     ascii;
+    data.class      polyBoundaryMesh;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+// processor0
+
+1411
+(FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       polyBoundaryMesh;
+    location    "1/air/polyMesh";
+    object      boundary;
+}
+6
+(
+    airInlet
+    {
+        type            patch;
+        nFaces          100;
+        startFace       11150;
+    }
+    airOutlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       11250;
+    }
+    cathodeSides
+    {
+        type            patch;
+        nFaces          600;
+        startFace       11250;
+    }
+    air_to_interconnect
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          400;
+        startFace       11850;
+        sampleMode      nearestPatchFace;
+        sampleRegion    interconnect;
+        samplePatch     interconnect_to_air;
+    }
+    air_to_electrolyte
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          200;
+        startFace       12250;
+        sampleMode      nearestPatchFace;
+        sampleRegion    electrolyte;
+        samplePatch     electrolyte_to_air;
+    }
+    procBoundary0to1
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          400;
+        startFace       12450;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        0;
+        neighbProcNo    1;
+    }
+))
+
+// processor1
+
+1501
+(7
+(
+    airInlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       11150;
+    }
+    airOutlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       11150;
+    }
+    cathodeSides
+    {
+        type            patch;
+        nFaces          300;
+        startFace       11150;
+    }
+    air_to_interconnect
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          400;
+        startFace       11450;
+        sampleMode      nearestPatchFace;
+        sampleRegion    interconnect;
+        samplePatch     interconnect_to_air;
+    }
+    air_to_electrolyte
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          200;
+        startFace       11850;
+        sampleMode      nearestPatchFace;
+        sampleRegion    electrolyte;
+        samplePatch     electrolyte_to_air;
+    }
+    procBoundary1to0
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          400;
+        startFace       12050;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        1;
+        neighbProcNo    0;
+    }
+    procBoundary1to2
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          400;
+        startFace       12450;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        1;
+        neighbProcNo    2;
+    }
+))
+
+// processor2
+
+1501
+(7
+(
+    airInlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       11150;
+    }
+    airOutlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       11150;
+    }
+    cathodeSides
+    {
+        type            patch;
+        nFaces          300;
+        startFace       11150;
+    }
+    air_to_interconnect
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          400;
+        startFace       11450;
+        sampleMode      nearestPatchFace;
+        sampleRegion    interconnect;
+        samplePatch     interconnect_to_air;
+    }
+    air_to_electrolyte
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          200;
+        startFace       11850;
+        sampleMode      nearestPatchFace;
+        sampleRegion    electrolyte;
+        samplePatch     electrolyte_to_air;
+    }
+    procBoundary2to1
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          400;
+        startFace       12050;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        2;
+        neighbProcNo    1;
+    }
+    procBoundary2to3
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          400;
+        startFace       12450;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        2;
+        neighbProcNo    3;
+    }
+))
+
+// processor3
+
+1218
+(6
+(
+    airInlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       11150;
+    }
+    airOutlet
+    {
+        type            patch;
+        nFaces          100;
+        startFace       11150;
+    }
+    cathodeSides
+    {
+        type            patch;
+        nFaces          600;
+        startFace       11250;
+    }
+    air_to_interconnect
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          400;
+        startFace       11850;
+        sampleMode      nearestPatchFace;
+        sampleRegion    interconnect;
+        samplePatch     interconnect_to_air;
+    }
+    air_to_electrolyte
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          200;
+        startFace       12250;
+        sampleMode      nearestPatchFace;
+        sampleRegion    electrolyte;
+        samplePatch     electrolyte_to_air;
+    }
+    procBoundary3to2
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          400;
+        startFace       12450;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        3;
+        neighbProcNo    2;
+    }
+))
+
+// processor4
+
+905
+(5
+(
+    airInlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    airOutlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    cathodeSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    air_to_interconnect
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       0;
+        sampleMode      nearestPatchFace;
+        sampleRegion    interconnect;
+        samplePatch     interconnect_to_air;
+    }
+    air_to_electrolyte
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       0;
+        sampleMode      nearestPatchFace;
+        sampleRegion    electrolyte;
+        samplePatch     electrolyte_to_air;
+    }
+))
+
+// processor5
+
+905
+(5
+(
+    airInlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    airOutlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    cathodeSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    air_to_interconnect
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       0;
+        sampleMode      nearestPatchFace;
+        sampleRegion    interconnect;
+        samplePatch     interconnect_to_air;
+    }
+    air_to_electrolyte
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       0;
+        sampleMode      nearestPatchFace;
+        sampleRegion    electrolyte;
+        samplePatch     electrolyte_to_air;
+    }
+))
+
+// processor6
+
+905
+(5
+(
+    airInlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    airOutlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    cathodeSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    air_to_interconnect
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       0;
+        sampleMode      nearestPatchFace;
+        sampleRegion    interconnect;
+        samplePatch     interconnect_to_air;
+    }
+    air_to_electrolyte
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       0;
+        sampleMode      nearestPatchFace;
+        sampleRegion    electrolyte;
+        samplePatch     electrolyte_to_air;
+    }
+))
+
+// processor7
+
+905
+(5
+(
+    airInlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    airOutlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    cathodeSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    air_to_interconnect
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       0;
+        sampleMode      nearestPatchFace;
+        sampleRegion    interconnect;
+        samplePatch     interconnect_to_air;
+    }
+    air_to_electrolyte
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       0;
+        sampleMode      nearestPatchFace;
+        sampleRegion    electrolyte;
+        samplePatch     electrolyte_to_air;
+    }
+))

@@ -1,0 +1,87 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     |
+    \\  /    A nd           | Copyright held by the original author
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+    class           dictionary;
+    object          cellProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+//- Add information here
+
+control           true;
+relax             1.0e-5;
+
+galvanostatic
+{
+    active      true;     //- Galvanostatic true or not
+    region      phiEC;    //- region where the galvanostatic control is applied
+    patchName   interconnect0; //- patch name to control e.g. mean current density
+
+    //voltage     constant 0.8;                 //- Mean voltage
+    ibar        constant 17000;                 //- Mean current density
+}
+
+sigma
+{
+    bpp
+    {
+        sigmaModel      constantSigma;
+
+        constantSigmaCoeffs
+        {
+            cellZone        bpp;
+            sigma           20000;
+        }
+    }
+
+    ccl
+    {
+        sigmaModel      porousSigma;
+
+        porousSigmaCoeffs
+        {
+            cellZone        ccl;
+            catalyst        no;
+            porosity        0.3;
+            sigma           5000;
+        }
+    }
+
+    cmpl
+    {
+        sigmaModel      resistanceSigma;
+
+        resistanceSigmaCoeffs
+        {
+            cellZone        cmpl;
+            catalyst        no;
+            //porosity        0.7;
+            //sigma           8000;
+            thickness       0.2e-4;
+            resistance      1.128e-7;
+        }
+    }
+
+    cathode
+    {
+        sigmaModel      resistanceSigma;
+
+        resistanceSigmaCoeffs
+        {
+            cellZone        cathode;
+            catalyst        no;
+            //porosity        0.7;
+            //sigma           8000;
+            thickness       2.3e-4;
+            resistance      1.297e-6;
+        }
+    }
+}

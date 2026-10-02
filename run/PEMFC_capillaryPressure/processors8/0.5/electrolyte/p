@@ -1,0 +1,274 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2306                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;
+    arch        "LSB;label=32;scalar=64";
+    class       decomposedBlockData;
+    object      p;
+    data.format     ascii;
+    data.class      volScalarField;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+// processor0
+
+712
+(FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       volScalarField;
+    location    "0.5/electrolyte";
+    object      p;
+}
+dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   uniform 150000;
+
+boundaryField
+{
+    electrolyteSides
+    {
+        type            calculated;
+        value           uniform 150000;
+    }
+    electrolyte_to_fuel
+    {
+        type            calculated;
+        value           uniform 150000;
+    }
+    electrolyte_to_air
+    {
+        type            calculated;
+        value           uniform 150000;
+    }
+    procBoundary0to1
+    {
+        type            processor;
+        value           uniform 150000;
+    }
+}
+)
+
+// processor1
+
+635
+(dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   uniform 150000;
+
+boundaryField
+{
+    electrolyteSides
+    {
+        type            calculated;
+        value           uniform 150000;
+    }
+    electrolyte_to_fuel
+    {
+        type            calculated;
+        value           uniform 150000;
+    }
+    electrolyte_to_air
+    {
+        type            calculated;
+        value           uniform 150000;
+    }
+    procBoundary1to0
+    {
+        type            processor;
+        value           uniform 150000;
+    }
+    procBoundary1to2
+    {
+        type            processor;
+        value           uniform 150000;
+    }
+}
+)
+
+// processor2
+
+635
+(dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   uniform 150000;
+
+boundaryField
+{
+    electrolyteSides
+    {
+        type            calculated;
+        value           uniform 150000;
+    }
+    electrolyte_to_fuel
+    {
+        type            calculated;
+        value           uniform 150000;
+    }
+    electrolyte_to_air
+    {
+        type            calculated;
+        value           uniform 150000;
+    }
+    procBoundary2to1
+    {
+        type            processor;
+        value           uniform 150000;
+    }
+    procBoundary2to3
+    {
+        type            processor;
+        value           uniform 150000;
+    }
+}
+)
+
+// processor3
+
+527
+(dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   uniform 150000;
+
+boundaryField
+{
+    electrolyteSides
+    {
+        type            calculated;
+        value           uniform 150000;
+    }
+    electrolyte_to_fuel
+    {
+        type            calculated;
+        value           uniform 150000;
+    }
+    electrolyte_to_air
+    {
+        type            calculated;
+        value           uniform 150000;
+    }
+    procBoundary3to2
+    {
+        type            processor;
+        value           uniform 150000;
+    }
+}
+)
+
+// processor4
+
+471
+(dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   nonuniform List<scalar> 0();
+
+boundaryField
+{
+    electrolyteSides
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    electrolyte_to_fuel
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    electrolyte_to_air
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+}
+)
+
+// processor5
+
+471
+(dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   nonuniform List<scalar> 0();
+
+boundaryField
+{
+    electrolyteSides
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    electrolyte_to_fuel
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    electrolyte_to_air
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+}
+)
+
+// processor6
+
+471
+(dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   nonuniform List<scalar> 0();
+
+boundaryField
+{
+    electrolyteSides
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    electrolyte_to_fuel
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    electrolyte_to_air
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+}
+)
+
+// processor7
+
+471
+(dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   nonuniform List<scalar> 0();
+
+boundaryField
+{
+    electrolyteSides
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    electrolyte_to_fuel
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    electrolyte_to_air
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+}
+)

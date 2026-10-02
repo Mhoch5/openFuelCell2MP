@@ -1,0 +1,314 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2306                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;
+    arch        "LSB;label=32;scalar=64";
+    class       decomposedBlockData;
+    object      diffSp.H2O;
+    data.format     ascii;
+    data.class      volScalarField;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+// processor0
+
+722
+(FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       volScalarField;
+    location    "1.5/fuel";
+    object      diffSp.H2O;
+}
+dimensions      [0 2 -1 0 0 0 0];
+
+internalField   uniform 1e-15;
+
+boundaryField
+{
+    anodeSides
+    {
+        type            zeroGradient;
+    }
+    fuelInlet
+    {
+        type            zeroGradient;
+    }
+    fuelOutlet
+    {
+        type            zeroGradient;
+    }
+    fuel_to_electrolyte
+    {
+        type            zeroGradient;
+    }
+    fuel_to_interconnect
+    {
+        type            zeroGradient;
+    }
+    procBoundary0to1
+    {
+        type            processor;
+        value           uniform 1e-15;
+    }
+}
+)
+
+// processor1
+
+642
+(dimensions      [0 2 -1 0 0 0 0];
+
+internalField   uniform 1e-15;
+
+boundaryField
+{
+    anodeSides
+    {
+        type            zeroGradient;
+    }
+    fuelInlet
+    {
+        type            zeroGradient;
+    }
+    fuelOutlet
+    {
+        type            zeroGradient;
+    }
+    fuel_to_electrolyte
+    {
+        type            zeroGradient;
+    }
+    fuel_to_interconnect
+    {
+        type            zeroGradient;
+    }
+    procBoundary1to0
+    {
+        type            processor;
+        value           uniform 1e-15;
+    }
+    procBoundary1to2
+    {
+        type            processor;
+        value           uniform 1e-15;
+    }
+}
+)
+
+// processor2
+
+642
+(dimensions      [0 2 -1 0 0 0 0];
+
+internalField   uniform 1e-15;
+
+boundaryField
+{
+    anodeSides
+    {
+        type            zeroGradient;
+    }
+    fuelInlet
+    {
+        type            zeroGradient;
+    }
+    fuelOutlet
+    {
+        type            zeroGradient;
+    }
+    fuel_to_electrolyte
+    {
+        type            zeroGradient;
+    }
+    fuel_to_interconnect
+    {
+        type            zeroGradient;
+    }
+    procBoundary2to1
+    {
+        type            processor;
+        value           uniform 1e-15;
+    }
+    procBoundary2to3
+    {
+        type            processor;
+        value           uniform 1e-15;
+    }
+}
+)
+
+// processor3
+
+535
+(dimensions      [0 2 -1 0 0 0 0];
+
+internalField   uniform 1e-15;
+
+boundaryField
+{
+    anodeSides
+    {
+        type            zeroGradient;
+    }
+    fuelInlet
+    {
+        type            zeroGradient;
+    }
+    fuelOutlet
+    {
+        type            zeroGradient;
+    }
+    fuel_to_electrolyte
+    {
+        type            zeroGradient;
+    }
+    fuel_to_interconnect
+    {
+        type            zeroGradient;
+    }
+    procBoundary3to2
+    {
+        type            processor;
+        value           uniform 1e-15;
+    }
+}
+)
+
+// processor4
+
+442
+(dimensions      [0 2 -1 0 0 0 0];
+
+internalField   nonuniform List<scalar> 0();
+
+boundaryField
+{
+    anodeSides
+    {
+        type            zeroGradient;
+    }
+    fuelInlet
+    {
+        type            zeroGradient;
+    }
+    fuelOutlet
+    {
+        type            zeroGradient;
+    }
+    fuel_to_electrolyte
+    {
+        type            zeroGradient;
+    }
+    fuel_to_interconnect
+    {
+        type            zeroGradient;
+    }
+}
+)
+
+// processor5
+
+442
+(dimensions      [0 2 -1 0 0 0 0];
+
+internalField   nonuniform List<scalar> 0();
+
+boundaryField
+{
+    anodeSides
+    {
+        type            zeroGradient;
+    }
+    fuelInlet
+    {
+        type            zeroGradient;
+    }
+    fuelOutlet
+    {
+        type            zeroGradient;
+    }
+    fuel_to_electrolyte
+    {
+        type            zeroGradient;
+    }
+    fuel_to_interconnect
+    {
+        type            zeroGradient;
+    }
+}
+)
+
+// processor6
+
+442
+(dimensions      [0 2 -1 0 0 0 0];
+
+internalField   nonuniform List<scalar> 0();
+
+boundaryField
+{
+    anodeSides
+    {
+        type            zeroGradient;
+    }
+    fuelInlet
+    {
+        type            zeroGradient;
+    }
+    fuelOutlet
+    {
+        type            zeroGradient;
+    }
+    fuel_to_electrolyte
+    {
+        type            zeroGradient;
+    }
+    fuel_to_interconnect
+    {
+        type            zeroGradient;
+    }
+}
+)
+
+// processor7
+
+442
+(dimensions      [0 2 -1 0 0 0 0];
+
+internalField   nonuniform List<scalar> 0();
+
+boundaryField
+{
+    anodeSides
+    {
+        type            zeroGradient;
+    }
+    fuelInlet
+    {
+        type            zeroGradient;
+    }
+    fuelOutlet
+    {
+        type            zeroGradient;
+    }
+    fuel_to_electrolyte
+    {
+        type            zeroGradient;
+    }
+    fuel_to_interconnect
+    {
+        type            zeroGradient;
+    }
+}
+)

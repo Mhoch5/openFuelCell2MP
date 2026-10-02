@@ -1,0 +1,363 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2306                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;
+    arch        "LSB;label=32;scalar=64";
+    class       decomposedBlockData;
+    location    "0/air";
+    object      U.air;
+    data.format ascii;
+    data.class  volVectorField;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+// processor0
+
+976
+(FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       volVectorField;
+    location    "0/air";
+    object      U.air;
+}
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   uniform (0 0 0);
+
+boundaryField
+{
+    airInlet
+    {
+        type            fixedValue;
+        value           uniform (5.82 0 0);
+    }
+    airOutlet
+    {
+        type            pressureInletOutletVelocity;
+        phi             phi.air;
+        value           nonuniform List<vector> 0();
+    }
+    cathodeSides
+    {
+        type            fixedValue;
+        value           uniform (0 0 0);
+    }
+    air_to_interconnect
+    {
+        type            fixedValue;
+        value           uniform (0 0 0);
+    }
+    air_to_electrolyte
+    {
+        type            fixedValue;
+        value           uniform (0 0 0);
+    }
+    procBoundary0to1
+    {
+        type            processor;
+        value           uniform (0 0 0);
+    }
+}
+)
+
+// processor1
+
+915
+(dimensions      [0 1 -1 0 0 0 0];
+
+internalField   uniform (0 0 0);
+
+boundaryField
+{
+    airInlet
+    {
+        type            fixedValue;
+        value           nonuniform List<vector> 0();
+    }
+    airOutlet
+    {
+        type            pressureInletOutletVelocity;
+        phi             phi.air;
+        value           nonuniform List<vector> 0();
+    }
+    cathodeSides
+    {
+        type            fixedValue;
+        value           uniform (0 0 0);
+    }
+    air_to_interconnect
+    {
+        type            fixedValue;
+        value           uniform (0 0 0);
+    }
+    air_to_electrolyte
+    {
+        type            fixedValue;
+        value           uniform (0 0 0);
+    }
+    procBoundary1to0
+    {
+        type            processor;
+        value           uniform (0 0 0);
+    }
+    procBoundary1to2
+    {
+        type            processor;
+        value           uniform (0 0 0);
+    }
+}
+)
+
+// processor2
+
+915
+(dimensions      [0 1 -1 0 0 0 0];
+
+internalField   uniform (0 0 0);
+
+boundaryField
+{
+    airInlet
+    {
+        type            fixedValue;
+        value           nonuniform List<vector> 0();
+    }
+    airOutlet
+    {
+        type            pressureInletOutletVelocity;
+        phi             phi.air;
+        value           nonuniform List<vector> 0();
+    }
+    cathodeSides
+    {
+        type            fixedValue;
+        value           uniform (0 0 0);
+    }
+    air_to_interconnect
+    {
+        type            fixedValue;
+        value           uniform (0 0 0);
+    }
+    air_to_electrolyte
+    {
+        type            fixedValue;
+        value           uniform (0 0 0);
+    }
+    procBoundary2to1
+    {
+        type            processor;
+        value           uniform (0 0 0);
+    }
+    procBoundary2to3
+    {
+        type            processor;
+        value           uniform (0 0 0);
+    }
+}
+)
+
+// processor3
+
+794
+(dimensions      [0 1 -1 0 0 0 0];
+
+internalField   uniform (0 0 0);
+
+boundaryField
+{
+    airInlet
+    {
+        type            fixedValue;
+        value           nonuniform List<vector> 0();
+    }
+    airOutlet
+    {
+        type            pressureInletOutletVelocity;
+        phi             phi.air;
+        value           uniform (0 0 0);
+    }
+    cathodeSides
+    {
+        type            fixedValue;
+        value           uniform (0 0 0);
+    }
+    air_to_interconnect
+    {
+        type            fixedValue;
+        value           uniform (0 0 0);
+    }
+    air_to_electrolyte
+    {
+        type            fixedValue;
+        value           uniform (0 0 0);
+    }
+    procBoundary3to2
+    {
+        type            processor;
+        value           uniform (0 0 0);
+    }
+}
+)
+
+// processor4
+
+745
+(dimensions      [0 1 -1 0 0 0 0];
+
+internalField   nonuniform List<vector> 0();
+
+boundaryField
+{
+    airInlet
+    {
+        type            fixedValue;
+        value           nonuniform List<vector> 0();
+    }
+    airOutlet
+    {
+        type            pressureInletOutletVelocity;
+        phi             phi.air;
+        value           nonuniform List<vector> 0();
+    }
+    cathodeSides
+    {
+        type            fixedValue;
+        value           nonuniform List<vector> 0();
+    }
+    air_to_interconnect
+    {
+        type            fixedValue;
+        value           nonuniform List<vector> 0();
+    }
+    air_to_electrolyte
+    {
+        type            fixedValue;
+        value           nonuniform List<vector> 0();
+    }
+}
+)
+
+// processor5
+
+745
+(dimensions      [0 1 -1 0 0 0 0];
+
+internalField   nonuniform List<vector> 0();
+
+boundaryField
+{
+    airInlet
+    {
+        type            fixedValue;
+        value           nonuniform List<vector> 0();
+    }
+    airOutlet
+    {
+        type            pressureInletOutletVelocity;
+        phi             phi.air;
+        value           nonuniform List<vector> 0();
+    }
+    cathodeSides
+    {
+        type            fixedValue;
+        value           nonuniform List<vector> 0();
+    }
+    air_to_interconnect
+    {
+        type            fixedValue;
+        value           nonuniform List<vector> 0();
+    }
+    air_to_electrolyte
+    {
+        type            fixedValue;
+        value           nonuniform List<vector> 0();
+    }
+}
+)
+
+// processor6
+
+745
+(dimensions      [0 1 -1 0 0 0 0];
+
+internalField   nonuniform List<vector> 0();
+
+boundaryField
+{
+    airInlet
+    {
+        type            fixedValue;
+        value           nonuniform List<vector> 0();
+    }
+    airOutlet
+    {
+        type            pressureInletOutletVelocity;
+        phi             phi.air;
+        value           nonuniform List<vector> 0();
+    }
+    cathodeSides
+    {
+        type            fixedValue;
+        value           nonuniform List<vector> 0();
+    }
+    air_to_interconnect
+    {
+        type            fixedValue;
+        value           nonuniform List<vector> 0();
+    }
+    air_to_electrolyte
+    {
+        type            fixedValue;
+        value           nonuniform List<vector> 0();
+    }
+}
+)
+
+// processor7
+
+745
+(dimensions      [0 1 -1 0 0 0 0];
+
+internalField   nonuniform List<vector> 0();
+
+boundaryField
+{
+    airInlet
+    {
+        type            fixedValue;
+        value           nonuniform List<vector> 0();
+    }
+    airOutlet
+    {
+        type            pressureInletOutletVelocity;
+        phi             phi.air;
+        value           nonuniform List<vector> 0();
+    }
+    cathodeSides
+    {
+        type            fixedValue;
+        value           nonuniform List<vector> 0();
+    }
+    air_to_interconnect
+    {
+        type            fixedValue;
+        value           nonuniform List<vector> 0();
+    }
+    air_to_electrolyte
+    {
+        type            fixedValue;
+        value           nonuniform List<vector> 0();
+    }
+}
+)

@@ -1,0 +1,454 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2306                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;
+    arch        "LSB;label=32;scalar=64";
+    class       decomposedBlockData;
+    object      boundary;
+    data.format     ascii;
+    data.class      polyBoundaryMesh;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+// processor0
+
+1416
+(FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       polyBoundaryMesh;
+    location    "1/fuel/polyMesh";
+    object      boundary;
+}
+6
+(
+    anodeSides
+    {
+        type            patch;
+        nFaces          600;
+        startFace       11150;
+    }
+    fuelInlet
+    {
+        type            patch;
+        nFaces          100;
+        startFace       11750;
+    }
+    fuelOutlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       11850;
+    }
+    fuel_to_electrolyte
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          200;
+        startFace       11850;
+        sampleMode      nearestPatchFace;
+        sampleRegion    electrolyte;
+        samplePatch     electrolyte_to_fuel;
+    }
+    fuel_to_interconnect
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          400;
+        startFace       12050;
+        sampleMode      nearestPatchFace;
+        sampleRegion    interconnect;
+        samplePatch     interconnect_to_fuel;
+    }
+    procBoundary0to1
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          400;
+        startFace       12450;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        0;
+        neighbProcNo    1;
+    }
+))
+
+// processor1
+
+1505
+(7
+(
+    anodeSides
+    {
+        type            patch;
+        nFaces          300;
+        startFace       11150;
+    }
+    fuelInlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       11450;
+    }
+    fuelOutlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       11450;
+    }
+    fuel_to_electrolyte
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          200;
+        startFace       11450;
+        sampleMode      nearestPatchFace;
+        sampleRegion    electrolyte;
+        samplePatch     electrolyte_to_fuel;
+    }
+    fuel_to_interconnect
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          400;
+        startFace       11650;
+        sampleMode      nearestPatchFace;
+        sampleRegion    interconnect;
+        samplePatch     interconnect_to_fuel;
+    }
+    procBoundary1to0
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          400;
+        startFace       12050;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        1;
+        neighbProcNo    0;
+    }
+    procBoundary1to2
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          400;
+        startFace       12450;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        1;
+        neighbProcNo    2;
+    }
+))
+
+// processor2
+
+1505
+(7
+(
+    anodeSides
+    {
+        type            patch;
+        nFaces          300;
+        startFace       11150;
+    }
+    fuelInlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       11450;
+    }
+    fuelOutlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       11450;
+    }
+    fuel_to_electrolyte
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          200;
+        startFace       11450;
+        sampleMode      nearestPatchFace;
+        sampleRegion    electrolyte;
+        samplePatch     electrolyte_to_fuel;
+    }
+    fuel_to_interconnect
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          400;
+        startFace       11650;
+        sampleMode      nearestPatchFace;
+        sampleRegion    interconnect;
+        samplePatch     interconnect_to_fuel;
+    }
+    procBoundary2to1
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          400;
+        startFace       12050;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        2;
+        neighbProcNo    1;
+    }
+    procBoundary2to3
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          400;
+        startFace       12450;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        2;
+        neighbProcNo    3;
+    }
+))
+
+// processor3
+
+1222
+(6
+(
+    anodeSides
+    {
+        type            patch;
+        nFaces          600;
+        startFace       11150;
+    }
+    fuelInlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       11750;
+    }
+    fuelOutlet
+    {
+        type            patch;
+        nFaces          100;
+        startFace       11750;
+    }
+    fuel_to_electrolyte
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          200;
+        startFace       11850;
+        sampleMode      nearestPatchFace;
+        sampleRegion    electrolyte;
+        samplePatch     electrolyte_to_fuel;
+    }
+    fuel_to_interconnect
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          400;
+        startFace       12050;
+        sampleMode      nearestPatchFace;
+        sampleRegion    interconnect;
+        samplePatch     interconnect_to_fuel;
+    }
+    procBoundary3to2
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          400;
+        startFace       12450;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        3;
+        neighbProcNo    2;
+    }
+))
+
+// processor4
+
+909
+(5
+(
+    anodeSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    fuelInlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    fuelOutlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    fuel_to_electrolyte
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       0;
+        sampleMode      nearestPatchFace;
+        sampleRegion    electrolyte;
+        samplePatch     electrolyte_to_fuel;
+    }
+    fuel_to_interconnect
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       0;
+        sampleMode      nearestPatchFace;
+        sampleRegion    interconnect;
+        samplePatch     interconnect_to_fuel;
+    }
+))
+
+// processor5
+
+909
+(5
+(
+    anodeSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    fuelInlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    fuelOutlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    fuel_to_electrolyte
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       0;
+        sampleMode      nearestPatchFace;
+        sampleRegion    electrolyte;
+        samplePatch     electrolyte_to_fuel;
+    }
+    fuel_to_interconnect
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       0;
+        sampleMode      nearestPatchFace;
+        sampleRegion    interconnect;
+        samplePatch     interconnect_to_fuel;
+    }
+))
+
+// processor6
+
+909
+(5
+(
+    anodeSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    fuelInlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    fuelOutlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    fuel_to_electrolyte
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       0;
+        sampleMode      nearestPatchFace;
+        sampleRegion    electrolyte;
+        samplePatch     electrolyte_to_fuel;
+    }
+    fuel_to_interconnect
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       0;
+        sampleMode      nearestPatchFace;
+        sampleRegion    interconnect;
+        samplePatch     interconnect_to_fuel;
+    }
+))
+
+// processor7
+
+909
+(5
+(
+    anodeSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    fuelInlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    fuelOutlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    fuel_to_electrolyte
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       0;
+        sampleMode      nearestPatchFace;
+        sampleRegion    electrolyte;
+        samplePatch     electrolyte_to_fuel;
+    }
+    fuel_to_interconnect
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       0;
+        sampleMode      nearestPatchFace;
+        sampleRegion    interconnect;
+        samplePatch     interconnect_to_fuel;
+    }
+))

@@ -1,0 +1,454 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2306                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;
+    arch        "LSB;label=32;scalar=64";
+    class       decomposedBlockData;
+    object      boundary;
+    data.format     ascii;
+    data.class      polyBoundaryMesh;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+// processor0
+
+1425
+(FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       polyBoundaryMesh;
+    location    "1/interconnect/polyMesh";
+    object      boundary;
+}
+6
+(
+    interconnect0
+    {
+        type            patch;
+        nFaces          200;
+        startFace       10700;
+    }
+    interconnectSides
+    {
+        type            patch;
+        nFaces          1000;
+        startFace       10900;
+    }
+    interconnect1
+    {
+        type            patch;
+        nFaces          200;
+        startFace       11900;
+    }
+    interconnect_to_air
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          400;
+        startFace       12100;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     air_to_interconnect;
+    }
+    interconnect_to_fuel
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          400;
+        startFace       12500;
+        sampleMode      nearestPatchFace;
+        sampleRegion    fuel;
+        samplePatch     fuel_to_interconnect;
+    }
+    procBoundary0to1
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          400;
+        startFace       12900;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        0;
+        neighbProcNo    1;
+    }
+))
+
+// processor1
+
+1507
+(7
+(
+    interconnect0
+    {
+        type            patch;
+        nFaces          200;
+        startFace       10700;
+    }
+    interconnectSides
+    {
+        type            patch;
+        nFaces          600;
+        startFace       10900;
+    }
+    interconnect1
+    {
+        type            patch;
+        nFaces          200;
+        startFace       11500;
+    }
+    interconnect_to_air
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          400;
+        startFace       11700;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     air_to_interconnect;
+    }
+    interconnect_to_fuel
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          400;
+        startFace       12100;
+        sampleMode      nearestPatchFace;
+        sampleRegion    fuel;
+        samplePatch     fuel_to_interconnect;
+    }
+    procBoundary1to0
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          400;
+        startFace       12500;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        1;
+        neighbProcNo    0;
+    }
+    procBoundary1to2
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          400;
+        startFace       12900;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        1;
+        neighbProcNo    2;
+    }
+))
+
+// processor2
+
+1507
+(7
+(
+    interconnect0
+    {
+        type            patch;
+        nFaces          200;
+        startFace       10700;
+    }
+    interconnectSides
+    {
+        type            patch;
+        nFaces          600;
+        startFace       10900;
+    }
+    interconnect1
+    {
+        type            patch;
+        nFaces          200;
+        startFace       11500;
+    }
+    interconnect_to_air
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          400;
+        startFace       11700;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     air_to_interconnect;
+    }
+    interconnect_to_fuel
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          400;
+        startFace       12100;
+        sampleMode      nearestPatchFace;
+        sampleRegion    fuel;
+        samplePatch     fuel_to_interconnect;
+    }
+    procBoundary2to1
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          400;
+        startFace       12500;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        2;
+        neighbProcNo    1;
+    }
+    procBoundary2to3
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          400;
+        startFace       12900;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        2;
+        neighbProcNo    3;
+    }
+))
+
+// processor3
+
+1223
+(6
+(
+    interconnect0
+    {
+        type            patch;
+        nFaces          200;
+        startFace       10700;
+    }
+    interconnectSides
+    {
+        type            patch;
+        nFaces          1000;
+        startFace       10900;
+    }
+    interconnect1
+    {
+        type            patch;
+        nFaces          200;
+        startFace       11900;
+    }
+    interconnect_to_air
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          400;
+        startFace       12100;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     air_to_interconnect;
+    }
+    interconnect_to_fuel
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          400;
+        startFace       12500;
+        sampleMode      nearestPatchFace;
+        sampleRegion    fuel;
+        samplePatch     fuel_to_interconnect;
+    }
+    procBoundary3to2
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          400;
+        startFace       12900;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        3;
+        neighbProcNo    2;
+    }
+))
+
+// processor4
+
+907
+(5
+(
+    interconnect0
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    interconnectSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    interconnect1
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    interconnect_to_air
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       0;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     air_to_interconnect;
+    }
+    interconnect_to_fuel
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       0;
+        sampleMode      nearestPatchFace;
+        sampleRegion    fuel;
+        samplePatch     fuel_to_interconnect;
+    }
+))
+
+// processor5
+
+907
+(5
+(
+    interconnect0
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    interconnectSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    interconnect1
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    interconnect_to_air
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       0;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     air_to_interconnect;
+    }
+    interconnect_to_fuel
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       0;
+        sampleMode      nearestPatchFace;
+        sampleRegion    fuel;
+        samplePatch     fuel_to_interconnect;
+    }
+))
+
+// processor6
+
+907
+(5
+(
+    interconnect0
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    interconnectSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    interconnect1
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    interconnect_to_air
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       0;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     air_to_interconnect;
+    }
+    interconnect_to_fuel
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       0;
+        sampleMode      nearestPatchFace;
+        sampleRegion    fuel;
+        samplePatch     fuel_to_interconnect;
+    }
+))
+
+// processor7
+
+907
+(5
+(
+    interconnect0
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    interconnectSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    interconnect1
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    interconnect_to_air
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       0;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     air_to_interconnect;
+    }
+    interconnect_to_fuel
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       0;
+        sampleMode      nearestPatchFace;
+        sampleRegion    fuel;
+        samplePatch     fuel_to_interconnect;
+    }
+))

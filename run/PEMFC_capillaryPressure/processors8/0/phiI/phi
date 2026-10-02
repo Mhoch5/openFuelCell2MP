@@ -1,0 +1,283 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2306                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;
+    arch        "LSB;label=32;scalar=64";
+    class       decomposedBlockData;
+    location    "0/phiI";
+    object      phi;
+    data.format ascii;
+    data.class  volScalarField;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+// processor0
+
+640
+(FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       volScalarField;
+    location    "0/phiI";
+    object      phi;
+}
+dimensions      [1 2 -3 0 0 -1 0];
+
+internalField   uniform -0.1;
+
+boundaryField
+{
+    cathodeSides
+    {
+        type            zeroGradient;
+    }
+    electrolyteSides
+    {
+        type            zeroGradient;
+    }
+    anodeSides
+    {
+        type            zeroGradient;
+    }
+    phiI_to_phiI0
+    {
+        type            zeroGradient;
+    }
+    procBoundary0to1
+    {
+        type            processor;
+        value           uniform -0.1;
+    }
+}
+)
+
+// processor1
+
+568
+(dimensions      [1 2 -3 0 0 -1 0];
+
+internalField   uniform -0.1;
+
+boundaryField
+{
+    cathodeSides
+    {
+        type            zeroGradient;
+    }
+    electrolyteSides
+    {
+        type            zeroGradient;
+    }
+    anodeSides
+    {
+        type            zeroGradient;
+    }
+    phiI_to_phiI0
+    {
+        type            zeroGradient;
+    }
+    procBoundary1to0
+    {
+        type            processor;
+        value           uniform -0.1;
+    }
+    procBoundary1to2
+    {
+        type            processor;
+        value           uniform -0.1;
+    }
+}
+)
+
+// processor2
+
+568
+(dimensions      [1 2 -3 0 0 -1 0];
+
+internalField   uniform -0.1;
+
+boundaryField
+{
+    cathodeSides
+    {
+        type            zeroGradient;
+    }
+    electrolyteSides
+    {
+        type            zeroGradient;
+    }
+    anodeSides
+    {
+        type            zeroGradient;
+    }
+    phiI_to_phiI0
+    {
+        type            zeroGradient;
+    }
+    procBoundary2to1
+    {
+        type            processor;
+        value           uniform -0.1;
+    }
+    procBoundary2to3
+    {
+        type            processor;
+        value           uniform -0.1;
+    }
+}
+)
+
+// processor3
+
+462
+(dimensions      [1 2 -3 0 0 -1 0];
+
+internalField   uniform -0.1;
+
+boundaryField
+{
+    cathodeSides
+    {
+        type            zeroGradient;
+    }
+    electrolyteSides
+    {
+        type            zeroGradient;
+    }
+    anodeSides
+    {
+        type            zeroGradient;
+    }
+    phiI_to_phiI0
+    {
+        type            zeroGradient;
+    }
+    procBoundary3to2
+    {
+        type            processor;
+        value           uniform -0.1;
+    }
+}
+)
+
+// processor4
+
+371
+(dimensions      [1 2 -3 0 0 -1 0];
+
+internalField   nonuniform List<scalar> 0();
+
+boundaryField
+{
+    cathodeSides
+    {
+        type            zeroGradient;
+    }
+    electrolyteSides
+    {
+        type            zeroGradient;
+    }
+    anodeSides
+    {
+        type            zeroGradient;
+    }
+    phiI_to_phiI0
+    {
+        type            zeroGradient;
+    }
+}
+)
+
+// processor5
+
+371
+(dimensions      [1 2 -3 0 0 -1 0];
+
+internalField   nonuniform List<scalar> 0();
+
+boundaryField
+{
+    cathodeSides
+    {
+        type            zeroGradient;
+    }
+    electrolyteSides
+    {
+        type            zeroGradient;
+    }
+    anodeSides
+    {
+        type            zeroGradient;
+    }
+    phiI_to_phiI0
+    {
+        type            zeroGradient;
+    }
+}
+)
+
+// processor6
+
+371
+(dimensions      [1 2 -3 0 0 -1 0];
+
+internalField   nonuniform List<scalar> 0();
+
+boundaryField
+{
+    cathodeSides
+    {
+        type            zeroGradient;
+    }
+    electrolyteSides
+    {
+        type            zeroGradient;
+    }
+    anodeSides
+    {
+        type            zeroGradient;
+    }
+    phiI_to_phiI0
+    {
+        type            zeroGradient;
+    }
+}
+)
+
+// processor7
+
+371
+(dimensions      [1 2 -3 0 0 -1 0];
+
+internalField   nonuniform List<scalar> 0();
+
+boundaryField
+{
+    cathodeSides
+    {
+        type            zeroGradient;
+    }
+    electrolyteSides
+    {
+        type            zeroGradient;
+    }
+    anodeSides
+    {
+        type            zeroGradient;
+    }
+    phiI_to_phiI0
+    {
+        type            zeroGradient;
+    }
+}
+)

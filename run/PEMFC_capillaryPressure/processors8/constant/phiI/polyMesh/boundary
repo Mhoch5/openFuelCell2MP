@@ -1,0 +1,374 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2306                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;
+    arch        "LSB;label=32;scalar=64";
+    class       decomposedBlockData;
+    object      boundary;
+    data.format     ascii;
+    data.class      polyBoundaryMesh;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+// processor0
+
+1117
+(FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       polyBoundaryMesh;
+    location    "1/phiI/polyMesh";
+    object      boundary;
+}
+5
+(
+    cathodeSides
+    {
+        type            patch;
+        nFaces          200;
+        startFace       11200;
+    }
+    electrolyteSides
+    {
+        type            patch;
+        nFaces          400;
+        startFace       11400;
+    }
+    anodeSides
+    {
+        type            patch;
+        nFaces          200;
+        startFace       11800;
+    }
+    phiI_to_phiI0
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          400;
+        startFace       12000;
+        sampleMode      nearestPatchFace;
+        sampleRegion    phiI0;
+        samplePatch     phiI0_to_phiI;
+    }
+    procBoundary0to1
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          400;
+        startFace       12400;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        0;
+        neighbProcNo    1;
+    }
+))
+
+// processor1
+
+1208
+(6
+(
+    cathodeSides
+    {
+        type            patch;
+        nFaces          100;
+        startFace       11200;
+    }
+    electrolyteSides
+    {
+        type            patch;
+        nFaces          200;
+        startFace       11300;
+    }
+    anodeSides
+    {
+        type            patch;
+        nFaces          100;
+        startFace       11500;
+    }
+    phiI_to_phiI0
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          400;
+        startFace       11600;
+        sampleMode      nearestPatchFace;
+        sampleRegion    phiI0;
+        samplePatch     phiI0_to_phiI;
+    }
+    procBoundary1to0
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          400;
+        startFace       12000;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        1;
+        neighbProcNo    0;
+    }
+    procBoundary1to2
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          400;
+        startFace       12400;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        1;
+        neighbProcNo    2;
+    }
+))
+
+// processor2
+
+1208
+(6
+(
+    cathodeSides
+    {
+        type            patch;
+        nFaces          100;
+        startFace       11200;
+    }
+    electrolyteSides
+    {
+        type            patch;
+        nFaces          200;
+        startFace       11300;
+    }
+    anodeSides
+    {
+        type            patch;
+        nFaces          100;
+        startFace       11500;
+    }
+    phiI_to_phiI0
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          400;
+        startFace       11600;
+        sampleMode      nearestPatchFace;
+        sampleRegion    phiI0;
+        samplePatch     phiI0_to_phiI;
+    }
+    procBoundary2to1
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          400;
+        startFace       12000;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        2;
+        neighbProcNo    1;
+    }
+    procBoundary2to3
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          400;
+        startFace       12400;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        2;
+        neighbProcNo    3;
+    }
+))
+
+// processor3
+
+923
+(5
+(
+    cathodeSides
+    {
+        type            patch;
+        nFaces          200;
+        startFace       11200;
+    }
+    electrolyteSides
+    {
+        type            patch;
+        nFaces          400;
+        startFace       11400;
+    }
+    anodeSides
+    {
+        type            patch;
+        nFaces          200;
+        startFace       11800;
+    }
+    phiI_to_phiI0
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          400;
+        startFace       12000;
+        sampleMode      nearestPatchFace;
+        sampleRegion    phiI0;
+        samplePatch     phiI0_to_phiI;
+    }
+    procBoundary3to2
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          400;
+        startFace       12400;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        3;
+        neighbProcNo    2;
+    }
+))
+
+// processor4
+
+614
+(4
+(
+    cathodeSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    electrolyteSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    anodeSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    phiI_to_phiI0
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       0;
+        sampleMode      nearestPatchFace;
+        sampleRegion    phiI0;
+        samplePatch     phiI0_to_phiI;
+    }
+))
+
+// processor5
+
+614
+(4
+(
+    cathodeSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    electrolyteSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    anodeSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    phiI_to_phiI0
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       0;
+        sampleMode      nearestPatchFace;
+        sampleRegion    phiI0;
+        samplePatch     phiI0_to_phiI;
+    }
+))
+
+// processor6
+
+614
+(4
+(
+    cathodeSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    electrolyteSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    anodeSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    phiI_to_phiI0
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       0;
+        sampleMode      nearestPatchFace;
+        sampleRegion    phiI0;
+        samplePatch     phiI0_to_phiI;
+    }
+))
+
+// processor7
+
+614
+(4
+(
+    cathodeSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    electrolyteSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    anodeSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    phiI_to_phiI0
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       0;
+        sampleMode      nearestPatchFace;
+        sampleRegion    phiI0;
+        samplePatch     phiI0_to_phiI;
+    }
+))

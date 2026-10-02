@@ -1,0 +1,314 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2306                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;
+    arch        "LSB;label=32;scalar=64";
+    class       decomposedBlockData;
+    object      diffSp.N2;
+    data.format     ascii;
+    data.class      volScalarField;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+// processor0
+
+716
+(FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       volScalarField;
+    location    "1/air";
+    object      diffSp.N2;
+}
+dimensions      [0 2 -1 0 0 0 0];
+
+internalField   uniform 1e-15;
+
+boundaryField
+{
+    airInlet
+    {
+        type            zeroGradient;
+    }
+    airOutlet
+    {
+        type            zeroGradient;
+    }
+    cathodeSides
+    {
+        type            zeroGradient;
+    }
+    air_to_interconnect
+    {
+        type            zeroGradient;
+    }
+    air_to_electrolyte
+    {
+        type            zeroGradient;
+    }
+    procBoundary0to1
+    {
+        type            processor;
+        value           uniform 1e-15;
+    }
+}
+)
+
+// processor1
+
+640
+(dimensions      [0 2 -1 0 0 0 0];
+
+internalField   uniform 1e-15;
+
+boundaryField
+{
+    airInlet
+    {
+        type            zeroGradient;
+    }
+    airOutlet
+    {
+        type            zeroGradient;
+    }
+    cathodeSides
+    {
+        type            zeroGradient;
+    }
+    air_to_interconnect
+    {
+        type            zeroGradient;
+    }
+    air_to_electrolyte
+    {
+        type            zeroGradient;
+    }
+    procBoundary1to0
+    {
+        type            processor;
+        value           uniform 1e-15;
+    }
+    procBoundary1to2
+    {
+        type            processor;
+        value           uniform 1e-15;
+    }
+}
+)
+
+// processor2
+
+640
+(dimensions      [0 2 -1 0 0 0 0];
+
+internalField   uniform 1e-15;
+
+boundaryField
+{
+    airInlet
+    {
+        type            zeroGradient;
+    }
+    airOutlet
+    {
+        type            zeroGradient;
+    }
+    cathodeSides
+    {
+        type            zeroGradient;
+    }
+    air_to_interconnect
+    {
+        type            zeroGradient;
+    }
+    air_to_electrolyte
+    {
+        type            zeroGradient;
+    }
+    procBoundary2to1
+    {
+        type            processor;
+        value           uniform 1e-15;
+    }
+    procBoundary2to3
+    {
+        type            processor;
+        value           uniform 1e-15;
+    }
+}
+)
+
+// processor3
+
+533
+(dimensions      [0 2 -1 0 0 0 0];
+
+internalField   uniform 1e-15;
+
+boundaryField
+{
+    airInlet
+    {
+        type            zeroGradient;
+    }
+    airOutlet
+    {
+        type            zeroGradient;
+    }
+    cathodeSides
+    {
+        type            zeroGradient;
+    }
+    air_to_interconnect
+    {
+        type            zeroGradient;
+    }
+    air_to_electrolyte
+    {
+        type            zeroGradient;
+    }
+    procBoundary3to2
+    {
+        type            processor;
+        value           uniform 1e-15;
+    }
+}
+)
+
+// processor4
+
+440
+(dimensions      [0 2 -1 0 0 0 0];
+
+internalField   nonuniform List<scalar> 0();
+
+boundaryField
+{
+    airInlet
+    {
+        type            zeroGradient;
+    }
+    airOutlet
+    {
+        type            zeroGradient;
+    }
+    cathodeSides
+    {
+        type            zeroGradient;
+    }
+    air_to_interconnect
+    {
+        type            zeroGradient;
+    }
+    air_to_electrolyte
+    {
+        type            zeroGradient;
+    }
+}
+)
+
+// processor5
+
+440
+(dimensions      [0 2 -1 0 0 0 0];
+
+internalField   nonuniform List<scalar> 0();
+
+boundaryField
+{
+    airInlet
+    {
+        type            zeroGradient;
+    }
+    airOutlet
+    {
+        type            zeroGradient;
+    }
+    cathodeSides
+    {
+        type            zeroGradient;
+    }
+    air_to_interconnect
+    {
+        type            zeroGradient;
+    }
+    air_to_electrolyte
+    {
+        type            zeroGradient;
+    }
+}
+)
+
+// processor6
+
+440
+(dimensions      [0 2 -1 0 0 0 0];
+
+internalField   nonuniform List<scalar> 0();
+
+boundaryField
+{
+    airInlet
+    {
+        type            zeroGradient;
+    }
+    airOutlet
+    {
+        type            zeroGradient;
+    }
+    cathodeSides
+    {
+        type            zeroGradient;
+    }
+    air_to_interconnect
+    {
+        type            zeroGradient;
+    }
+    air_to_electrolyte
+    {
+        type            zeroGradient;
+    }
+}
+)
+
+// processor7
+
+440
+(dimensions      [0 2 -1 0 0 0 0];
+
+internalField   nonuniform List<scalar> 0();
+
+boundaryField
+{
+    airInlet
+    {
+        type            zeroGradient;
+    }
+    airOutlet
+    {
+        type            zeroGradient;
+    }
+    cathodeSides
+    {
+        type            zeroGradient;
+    }
+    air_to_interconnect
+    {
+        type            zeroGradient;
+    }
+    air_to_electrolyte
+    {
+        type            zeroGradient;
+    }
+}
+)

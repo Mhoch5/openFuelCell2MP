@@ -1,0 +1,69 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2306                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;
+    arch        "LSB;label=32;scalar=64";
+    class       decomposedBlockData;
+    location    "constant/phiEC/polyMesh";
+    object      boundaryProcAddressing;
+    data.format ascii;
+    data.class  labelList;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+// processor0
+
+222
+(FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       labelList;
+    location    "constant/phiEC/polyMesh";
+    object      boundaryProcAddressing;
+}
+5(0 1 2 3 -1))
+
+// processor1
+
+16
+(6(0 1 2 3 -1 -1))
+
+// processor2
+
+16
+(6(0 1 2 3 -1 -1))
+
+// processor3
+
+13
+(5(0 1 2 3 -1))
+
+// processor4
+
+10
+(4(0 1 2 3))
+
+// processor5
+
+10
+(4(0 1 2 3))
+
+// processor6
+
+10
+(4(0 1 2 3))
+
+// processor7
+
+10
+(4(0 1 2 3))

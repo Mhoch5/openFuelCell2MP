@@ -1,0 +1,291 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2306                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;
+    arch        "LSB;label=32;scalar=64";
+    class       decomposedBlockData;
+    location    "0/phiEC";
+    object      phi;
+    data.format ascii;
+    data.class  volScalarField;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+// processor0
+
+679
+(FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       volScalarField;
+    location    "0/phiEC";
+    object      phi;
+}
+dimensions      [1 2 -3 0 0 -1 0];
+
+internalField   uniform 0.8;
+
+boundaryField
+{
+    interconnect0
+    {
+        type            fixedValue;
+        value           uniform 0.8;
+    }
+    interconnectSides
+    {
+        type            zeroGradient;
+    }
+    cathodeSides
+    {
+        type            zeroGradient;
+    }
+    phiEC_to_phiE0
+    {
+        type            zeroGradient;
+    }
+    procBoundary0to1
+    {
+        type            processor;
+        value           uniform 0.8;
+    }
+}
+)
+
+// processor1
+
+605
+(dimensions      [1 2 -3 0 0 -1 0];
+
+internalField   uniform 0.8;
+
+boundaryField
+{
+    interconnect0
+    {
+        type            fixedValue;
+        value           uniform 0.8;
+    }
+    interconnectSides
+    {
+        type            zeroGradient;
+    }
+    cathodeSides
+    {
+        type            zeroGradient;
+    }
+    phiEC_to_phiE0
+    {
+        type            zeroGradient;
+    }
+    procBoundary1to0
+    {
+        type            processor;
+        value           uniform 0.8;
+    }
+    procBoundary1to2
+    {
+        type            processor;
+        value           uniform 0.8;
+    }
+}
+)
+
+// processor2
+
+605
+(dimensions      [1 2 -3 0 0 -1 0];
+
+internalField   uniform 0.8;
+
+boundaryField
+{
+    interconnect0
+    {
+        type            fixedValue;
+        value           uniform 0.8;
+    }
+    interconnectSides
+    {
+        type            zeroGradient;
+    }
+    cathodeSides
+    {
+        type            zeroGradient;
+    }
+    phiEC_to_phiE0
+    {
+        type            zeroGradient;
+    }
+    procBoundary2to1
+    {
+        type            processor;
+        value           uniform 0.8;
+    }
+    procBoundary2to3
+    {
+        type            processor;
+        value           uniform 0.8;
+    }
+}
+)
+
+// processor3
+
+500
+(dimensions      [1 2 -3 0 0 -1 0];
+
+internalField   uniform 0.8;
+
+boundaryField
+{
+    interconnect0
+    {
+        type            fixedValue;
+        value           uniform 0.8;
+    }
+    interconnectSides
+    {
+        type            zeroGradient;
+    }
+    cathodeSides
+    {
+        type            zeroGradient;
+    }
+    phiEC_to_phiE0
+    {
+        type            zeroGradient;
+    }
+    procBoundary3to2
+    {
+        type            processor;
+        value           uniform 0.8;
+    }
+}
+)
+
+// processor4
+
+427
+(dimensions      [1 2 -3 0 0 -1 0];
+
+internalField   nonuniform List<scalar> 0();
+
+boundaryField
+{
+    interconnect0
+    {
+        type            fixedValue;
+        value           nonuniform List<scalar> 0();
+    }
+    interconnectSides
+    {
+        type            zeroGradient;
+    }
+    cathodeSides
+    {
+        type            zeroGradient;
+    }
+    phiEC_to_phiE0
+    {
+        type            zeroGradient;
+    }
+}
+)
+
+// processor5
+
+427
+(dimensions      [1 2 -3 0 0 -1 0];
+
+internalField   nonuniform List<scalar> 0();
+
+boundaryField
+{
+    interconnect0
+    {
+        type            fixedValue;
+        value           nonuniform List<scalar> 0();
+    }
+    interconnectSides
+    {
+        type            zeroGradient;
+    }
+    cathodeSides
+    {
+        type            zeroGradient;
+    }
+    phiEC_to_phiE0
+    {
+        type            zeroGradient;
+    }
+}
+)
+
+// processor6
+
+427
+(dimensions      [1 2 -3 0 0 -1 0];
+
+internalField   nonuniform List<scalar> 0();
+
+boundaryField
+{
+    interconnect0
+    {
+        type            fixedValue;
+        value           nonuniform List<scalar> 0();
+    }
+    interconnectSides
+    {
+        type            zeroGradient;
+    }
+    cathodeSides
+    {
+        type            zeroGradient;
+    }
+    phiEC_to_phiE0
+    {
+        type            zeroGradient;
+    }
+}
+)
+
+// processor7
+
+427
+(dimensions      [1 2 -3 0 0 -1 0];
+
+internalField   nonuniform List<scalar> 0();
+
+boundaryField
+{
+    interconnect0
+    {
+        type            fixedValue;
+        value           nonuniform List<scalar> 0();
+    }
+    interconnectSides
+    {
+        type            zeroGradient;
+    }
+    cathodeSides
+    {
+        type            zeroGradient;
+    }
+    phiEC_to_phiE0
+    {
+        type            zeroGradient;
+    }
+}
+)

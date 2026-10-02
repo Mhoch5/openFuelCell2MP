@@ -1,0 +1,251 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2306                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;
+    arch        "LSB;label=32;scalar=64";
+    class       decomposedBlockData;
+    location    "0/electrolyte";
+    object      T;
+    data.format ascii;
+    data.class  volScalarField;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+// processor0
+
+594
+(FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       volScalarField;
+    location    "0/electrolyte";
+    object      T;
+}
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   uniform 356.15;
+
+boundaryField
+{
+    electrolyteSides
+    {
+        type            zeroGradient;
+    }
+    electrolyte_to_fuel
+    {
+        type            zeroGradient;
+    }
+    electrolyte_to_air
+    {
+        type            zeroGradient;
+    }
+    procBoundary0to1
+    {
+        type            processor;
+        value           uniform 356.15;
+    }
+}
+)
+
+// processor1
+
+519
+(dimensions      [0 0 0 1 0 0 0];
+
+internalField   uniform 356.15;
+
+boundaryField
+{
+    electrolyteSides
+    {
+        type            zeroGradient;
+    }
+    electrolyte_to_fuel
+    {
+        type            zeroGradient;
+    }
+    electrolyte_to_air
+    {
+        type            zeroGradient;
+    }
+    procBoundary1to0
+    {
+        type            processor;
+        value           uniform 356.15;
+    }
+    procBoundary1to2
+    {
+        type            processor;
+        value           uniform 356.15;
+    }
+}
+)
+
+// processor2
+
+519
+(dimensions      [0 0 0 1 0 0 0];
+
+internalField   uniform 356.15;
+
+boundaryField
+{
+    electrolyteSides
+    {
+        type            zeroGradient;
+    }
+    electrolyte_to_fuel
+    {
+        type            zeroGradient;
+    }
+    electrolyte_to_air
+    {
+        type            zeroGradient;
+    }
+    procBoundary2to1
+    {
+        type            processor;
+        value           uniform 356.15;
+    }
+    procBoundary2to3
+    {
+        type            processor;
+        value           uniform 356.15;
+    }
+}
+)
+
+// processor3
+
+411
+(dimensions      [0 0 0 1 0 0 0];
+
+internalField   uniform 356.15;
+
+boundaryField
+{
+    electrolyteSides
+    {
+        type            zeroGradient;
+    }
+    electrolyte_to_fuel
+    {
+        type            zeroGradient;
+    }
+    electrolyte_to_air
+    {
+        type            zeroGradient;
+    }
+    procBoundary3to2
+    {
+        type            processor;
+        value           uniform 356.15;
+    }
+}
+)
+
+// processor4
+
+316
+(dimensions      [0 0 0 1 0 0 0];
+
+internalField   nonuniform List<scalar> 0();
+
+boundaryField
+{
+    electrolyteSides
+    {
+        type            zeroGradient;
+    }
+    electrolyte_to_fuel
+    {
+        type            zeroGradient;
+    }
+    electrolyte_to_air
+    {
+        type            zeroGradient;
+    }
+}
+)
+
+// processor5
+
+316
+(dimensions      [0 0 0 1 0 0 0];
+
+internalField   nonuniform List<scalar> 0();
+
+boundaryField
+{
+    electrolyteSides
+    {
+        type            zeroGradient;
+    }
+    electrolyte_to_fuel
+    {
+        type            zeroGradient;
+    }
+    electrolyte_to_air
+    {
+        type            zeroGradient;
+    }
+}
+)
+
+// processor6
+
+316
+(dimensions      [0 0 0 1 0 0 0];
+
+internalField   nonuniform List<scalar> 0();
+
+boundaryField
+{
+    electrolyteSides
+    {
+        type            zeroGradient;
+    }
+    electrolyte_to_fuel
+    {
+        type            zeroGradient;
+    }
+    electrolyte_to_air
+    {
+        type            zeroGradient;
+    }
+}
+)
+
+// processor7
+
+316
+(dimensions      [0 0 0 1 0 0 0];
+
+internalField   nonuniform List<scalar> 0();
+
+boundaryField
+{
+    electrolyteSides
+    {
+        type            zeroGradient;
+    }
+    electrolyte_to_fuel
+    {
+        type            zeroGradient;
+    }
+    electrolyte_to_air
+    {
+        type            zeroGradient;
+    }
+}
+)

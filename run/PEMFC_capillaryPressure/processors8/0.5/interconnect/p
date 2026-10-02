@@ -1,0 +1,354 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2306                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;
+    arch        "LSB;label=32;scalar=64";
+    class       decomposedBlockData;
+    object      p;
+    data.format     ascii;
+    data.class      volScalarField;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+// processor0
+
+928
+(FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       volScalarField;
+    location    "0.5/interconnect";
+    object      p;
+}
+dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   uniform 150000;
+
+boundaryField
+{
+    interconnect0
+    {
+        type            calculated;
+        value           uniform 150000;
+    }
+    interconnectSides
+    {
+        type            calculated;
+        value           uniform 150000;
+    }
+    interconnect1
+    {
+        type            calculated;
+        value           uniform 150000;
+    }
+    interconnect_to_air
+    {
+        type            calculated;
+        value           uniform 150000;
+    }
+    interconnect_to_fuel
+    {
+        type            calculated;
+        value           uniform 150000;
+    }
+    procBoundary0to1
+    {
+        type            processor;
+        value           uniform 150000;
+    }
+}
+)
+
+// processor1
+
+850
+(dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   uniform 150000;
+
+boundaryField
+{
+    interconnect0
+    {
+        type            calculated;
+        value           uniform 150000;
+    }
+    interconnectSides
+    {
+        type            calculated;
+        value           uniform 150000;
+    }
+    interconnect1
+    {
+        type            calculated;
+        value           uniform 150000;
+    }
+    interconnect_to_air
+    {
+        type            calculated;
+        value           uniform 150000;
+    }
+    interconnect_to_fuel
+    {
+        type            calculated;
+        value           uniform 150000;
+    }
+    procBoundary1to0
+    {
+        type            processor;
+        value           uniform 150000;
+    }
+    procBoundary1to2
+    {
+        type            processor;
+        value           uniform 150000;
+    }
+}
+)
+
+// processor2
+
+850
+(dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   uniform 150000;
+
+boundaryField
+{
+    interconnect0
+    {
+        type            calculated;
+        value           uniform 150000;
+    }
+    interconnectSides
+    {
+        type            calculated;
+        value           uniform 150000;
+    }
+    interconnect1
+    {
+        type            calculated;
+        value           uniform 150000;
+    }
+    interconnect_to_air
+    {
+        type            calculated;
+        value           uniform 150000;
+    }
+    interconnect_to_fuel
+    {
+        type            calculated;
+        value           uniform 150000;
+    }
+    procBoundary2to1
+    {
+        type            processor;
+        value           uniform 150000;
+    }
+    procBoundary2to3
+    {
+        type            processor;
+        value           uniform 150000;
+    }
+}
+)
+
+// processor3
+
+742
+(dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   uniform 150000;
+
+boundaryField
+{
+    interconnect0
+    {
+        type            calculated;
+        value           uniform 150000;
+    }
+    interconnectSides
+    {
+        type            calculated;
+        value           uniform 150000;
+    }
+    interconnect1
+    {
+        type            calculated;
+        value           uniform 150000;
+    }
+    interconnect_to_air
+    {
+        type            calculated;
+        value           uniform 150000;
+    }
+    interconnect_to_fuel
+    {
+        type            calculated;
+        value           uniform 150000;
+    }
+    procBoundary3to2
+    {
+        type            processor;
+        value           uniform 150000;
+    }
+}
+)
+
+// processor4
+
+712
+(dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   nonuniform List<scalar> 0();
+
+boundaryField
+{
+    interconnect0
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    interconnectSides
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    interconnect1
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    interconnect_to_air
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    interconnect_to_fuel
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+}
+)
+
+// processor5
+
+712
+(dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   nonuniform List<scalar> 0();
+
+boundaryField
+{
+    interconnect0
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    interconnectSides
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    interconnect1
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    interconnect_to_air
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    interconnect_to_fuel
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+}
+)
+
+// processor6
+
+712
+(dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   nonuniform List<scalar> 0();
+
+boundaryField
+{
+    interconnect0
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    interconnectSides
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    interconnect1
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    interconnect_to_air
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    interconnect_to_fuel
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+}
+)
+
+// processor7
+
+712
+(dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   nonuniform List<scalar> 0();
+
+boundaryField
+{
+    interconnect0
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    interconnectSides
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    interconnect1
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    interconnect_to_air
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    interconnect_to_fuel
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+}
+)

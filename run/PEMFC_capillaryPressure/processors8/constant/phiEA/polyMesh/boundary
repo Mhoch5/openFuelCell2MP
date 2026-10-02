@@ -1,0 +1,374 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2306                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;
+    arch        "LSB;label=32;scalar=64";
+    class       decomposedBlockData;
+    object      boundary;
+    data.format     ascii;
+    data.class      polyBoundaryMesh;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+// processor0
+
+1122
+(FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       polyBoundaryMesh;
+    location    "1/phiEA/polyMesh";
+    object      boundary;
+}
+5
+(
+    interconnectSides
+    {
+        type            patch;
+        nFaces          500;
+        startFace       13800;
+    }
+    anodeSides
+    {
+        type            patch;
+        nFaces          600;
+        startFace       14300;
+    }
+    interconnect1
+    {
+        type            patch;
+        nFaces          200;
+        startFace       14900;
+    }
+    phiEA_to_phiE0
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          600;
+        startFace       15100;
+        sampleMode      nearestPatchFace;
+        sampleRegion    phiE0;
+        samplePatch     phiE0_to_phiEA;
+    }
+    procBoundary0to1
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          500;
+        startFace       15700;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        0;
+        neighbProcNo    1;
+    }
+))
+
+// processor1
+
+1212
+(6
+(
+    interconnectSides
+    {
+        type            patch;
+        nFaces          300;
+        startFace       13800;
+    }
+    anodeSides
+    {
+        type            patch;
+        nFaces          300;
+        startFace       14100;
+    }
+    interconnect1
+    {
+        type            patch;
+        nFaces          200;
+        startFace       14400;
+    }
+    phiEA_to_phiE0
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          600;
+        startFace       14600;
+        sampleMode      nearestPatchFace;
+        sampleRegion    phiE0;
+        samplePatch     phiE0_to_phiEA;
+    }
+    procBoundary1to0
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          500;
+        startFace       15200;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        1;
+        neighbProcNo    0;
+    }
+    procBoundary1to2
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          500;
+        startFace       15700;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        1;
+        neighbProcNo    2;
+    }
+))
+
+// processor2
+
+1212
+(6
+(
+    interconnectSides
+    {
+        type            patch;
+        nFaces          300;
+        startFace       13800;
+    }
+    anodeSides
+    {
+        type            patch;
+        nFaces          300;
+        startFace       14100;
+    }
+    interconnect1
+    {
+        type            patch;
+        nFaces          200;
+        startFace       14400;
+    }
+    phiEA_to_phiE0
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          600;
+        startFace       14600;
+        sampleMode      nearestPatchFace;
+        sampleRegion    phiE0;
+        samplePatch     phiE0_to_phiEA;
+    }
+    procBoundary2to1
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          500;
+        startFace       15200;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        2;
+        neighbProcNo    1;
+    }
+    procBoundary2to3
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          500;
+        startFace       15700;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        2;
+        neighbProcNo    3;
+    }
+))
+
+// processor3
+
+927
+(5
+(
+    interconnectSides
+    {
+        type            patch;
+        nFaces          500;
+        startFace       13800;
+    }
+    anodeSides
+    {
+        type            patch;
+        nFaces          600;
+        startFace       14300;
+    }
+    interconnect1
+    {
+        type            patch;
+        nFaces          200;
+        startFace       14900;
+    }
+    phiEA_to_phiE0
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          600;
+        startFace       15100;
+        sampleMode      nearestPatchFace;
+        sampleRegion    phiE0;
+        samplePatch     phiE0_to_phiEA;
+    }
+    procBoundary3to2
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          500;
+        startFace       15700;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        3;
+        neighbProcNo    2;
+    }
+))
+
+// processor4
+
+618
+(4
+(
+    interconnectSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    anodeSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    interconnect1
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    phiEA_to_phiE0
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       0;
+        sampleMode      nearestPatchFace;
+        sampleRegion    phiE0;
+        samplePatch     phiE0_to_phiEA;
+    }
+))
+
+// processor5
+
+618
+(4
+(
+    interconnectSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    anodeSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    interconnect1
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    phiEA_to_phiE0
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       0;
+        sampleMode      nearestPatchFace;
+        sampleRegion    phiE0;
+        samplePatch     phiE0_to_phiEA;
+    }
+))
+
+// processor6
+
+618
+(4
+(
+    interconnectSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    anodeSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    interconnect1
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    phiEA_to_phiE0
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       0;
+        sampleMode      nearestPatchFace;
+        sampleRegion    phiE0;
+        samplePatch     phiE0_to_phiEA;
+    }
+))
+
+// processor7
+
+618
+(4
+(
+    interconnectSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    anodeSides
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    interconnect1
+    {
+        type            patch;
+        nFaces          0;
+        startFace       0;
+    }
+    phiEA_to_phiE0
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       0;
+        sampleMode      nearestPatchFace;
+        sampleRegion    phiE0;
+        samplePatch     phiE0_to_phiEA;
+    }
+))
